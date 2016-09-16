@@ -21,7 +21,7 @@ class Bond
 
     p 'CHALLENGE 2'
     p 'Spread to curve calculation for given corporate bond:'
-    caulate_spread_gov_bond_curve
+    caulate_spread_gov_bond_curve.each_slice(2) { |x| p x.join(',') }
   end
 
   def caulate_gov_bond_benchmark
@@ -35,7 +35,7 @@ class Bond
     end
 
     collect.each_slice(2) { |x| p x.join(',') }
-    result = collect
+    collect
   end
 
   def caulate_spread_gov_bond_curve
@@ -48,8 +48,7 @@ class Bond
       end
     end
 
-    collect.each_slice(2) { |x| p x.join(',') }
-    result = collect
+    collect
   end
 
   private

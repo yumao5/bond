@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.3.0)
-    byebug (9.0.5)
     diff-lcs (1.2.5)
     parser (2.3.1.2)
       ast (~> 2.2)
@@ -34,7 +33,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
   rspec
   rubocop
 
