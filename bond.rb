@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'csv'
-require 'pp'
 
 # TODO: Add documentation
 # Missing top-level module documentation comment
@@ -13,14 +12,14 @@ class Bond
   end
 
   def output
-    puts 'CHALLENGE 1'
-    puts 'Single yield spread calculation:'
+    p 'CHALLENGE 1'
+    p 'Single yield spread calculation:'
     caulate_gov_bond_benchmark(sample_data)
 
-    puts "\n\n"
+    p "\n\n"
 
-    puts 'CHALLENGE 2'
-    puts 'Spread to curve calculation for given corporate bond:'
+    p 'CHALLENGE 2'
+    p 'Spread to curve calculation for given corporate bond:'
     caulate_spread_gov_bond_curve(sample_data)
   end
 
