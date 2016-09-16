@@ -5,7 +5,7 @@ require 'csv'
 # Missing top-level module documentation comment
 class Bond
   attr_accessor :sample_data
-  FILE_PATH = File.expand_path('../sample_input.csv', __FILE__)
+  FILE_PATH = File.expand_path('../data/sample_input.csv', __FILE__)
 
   def initialize
     @sample_data = load_file(FILE_PATH)
@@ -14,39 +14,42 @@ class Bond
   def output
     p 'CHALLENGE 1'
     p 'Single yield spread calculation:'
-    caulate_gov_bond_benchmark(sample_data)
+    caulate_gov_bond_benchmark
 
-    p "\n\n"
+
+    puts "\n\n"
 
     p 'CHALLENGE 2'
     p 'Spread to curve calculation for given corporate bond:'
-    caulate_spread_gov_bond_curve(sample_data)
+    caulate_spread_gov_bond_curve
   end
 
-  def caulate_gov_bond_benchmark(sample_data)
-    result = []
+  def caulate_gov_bond_benchmark
+    collect = []
 
-    sample_data.each do |data|
+    @sample_data.each do |data|
       if data[1] == 'corporate'
-        result << data[0]
-        result << gov_bond_benchmark(data[2].split(' ')[0].to_f, data[3].to_f)
+        collect << data[0]
+        collect << gov_bond_benchmark(data[2].split(' ')[0].to_f, data[3].to_f)
       end
     end
 
-    result.each_slice(2) { |x| p x.join(',') }
+    collect.each_slice(2) { |x| p x.join(',') }
+    result = collect
   end
 
-  def caulate_spread_gov_bond_curve(sample_data)
-    result = []
+  def caulate_spread_gov_bond_curve
+    collect = []
 
-    sample_data.each do |data|
+    @sample_data.each do |data|
       if data[1] == 'corporate'
-        result << data[0]
-        result << "#{spread_gov_bond_curve(data[2].split(' ')[0].to_f, data[3].to_f)}%"
+        collect << data[0]
+        collect << "#{spread_gov_bond_curve(data[2].split(' ')[0].to_f, data[3].to_f)}%"
       end
     end
 
-    result.each_slice(2) { |x| p x.join(',') }
+    collect.each_slice(2) { |x| p x.join(',') }
+    result = collect
   end
 
   private
