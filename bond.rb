@@ -6,6 +6,8 @@ require 'csv'
 class Bond
   attr_accessor :sample_data
   FILE_PATH = File.expand_path('../data/sample_input.csv', __FILE__)
+  COR_TYPE = 'corporate'
+  GOV_TYPE = 'government'
 
   def initialize
     @sample_data = load_file(FILE_PATH)
@@ -15,7 +17,6 @@ class Bond
     p 'CHALLENGE 1'
     p 'Single yield spread calculation:'
     caulate_gov_bond_benchmark
-
 
     puts "\n\n"
 
@@ -28,7 +29,7 @@ class Bond
     collect = []
 
     @sample_data.each do |data|
-      if data[1] == 'corporate'
+      if data[1] == COR_TYPE
         collect << data[0]
         collect << gov_bond_benchmark(data[2].split(' ')[0].to_f, data[3].to_f)
       end
@@ -42,7 +43,7 @@ class Bond
     collect = []
 
     @sample_data.each do |data|
-      if data[1] == 'corporate'
+      if data[1] == COR_TYPE
         collect << data[0]
         collect << "#{spread_gov_bond_curve(data[2].split(' ')[0].to_f, data[3].to_f)}%"
       end
@@ -77,7 +78,7 @@ class Bond
     result = []
 
     sample_data.each do |data|
-      result << data[2].split(' ')[0].to_f if data[1] == 'government'
+      result << data[2].split(' ')[0].to_f if data[1] == GOV_TYPE
     end
 
     result
@@ -87,7 +88,7 @@ class Bond
     result = []
 
     sample_data.each do |data|
-      result << data[3].to_f if data[1] == 'government'
+      result << data[3].to_f if data[1] == GOV_TYPE
     end
 
     result
@@ -97,7 +98,7 @@ class Bond
     result = []
 
     sample_data.each do |data|
-      result << data[0] if data[1] == 'government'
+      result << data[0] if data[1] == GOV_TYPE
     end
 
     result

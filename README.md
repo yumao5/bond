@@ -6,6 +6,7 @@
 ruby run.rb
 
 ## Expected Result
+```
   # CHALLENGE 1
   # Single yield spread calculation:
   "C1,G1,1.6%"
@@ -25,17 +26,19 @@ ruby run.rb
   "C5,1.9%"
   "C6,1.22%"
   "C7,2.83%"
+```
 
-## Documentation
+## Files and Functions
 * Read file from sample data *csv*
 * Calculate with *caulate_gov_bond_benchmark* , *caulate_spread_gov_bond_curve* and convert result to *Array* to output
 
-*Folder and files*
+```
 -- /data (sample data contain folder)
 -- /spec (uint test files folder)
 -- bond.rb (Bond Calculator object)
 -- Gemfile (Gem list)
 -- run.rb  (Result output)
+```
 
 ## Improvement
 1. Add error check handler to check error during the read file and check data element
