@@ -5,7 +5,7 @@
 ## Usage
 ruby run.rb
 
-### Result Sample
+#### Result Sample
 ```
   # CHALLENGE 1
   # Single yield spread calculation:
@@ -29,11 +29,11 @@ ruby run.rb
 ```
 
 ## Files and Functions
-### Functions
+#### Functions
 * Read file from sample data *csv*
 * Calculate with *caulate_gov_bond_benchmark* , *caulate_spread_gov_bond_curve* and convert result to *Array* to output
 
-### Files
+#### Files
 ```
 -- /data (sample data contain folder)
 -- /spec (uint test files folder)
