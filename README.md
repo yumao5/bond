@@ -5,7 +5,7 @@
 ## Usage
 ruby run.rb
 
-# Expected Result
+### Expected Result
 ```
   # CHALLENGE 1
   # Single yield spread calculation:
